@@ -1,3 +1,5 @@
+using Serilog;
+
 namespace EpiServerProject
 {
     public class Program
@@ -8,5 +10,7 @@ namespace EpiServerProject
             Host.CreateDefaultBuilder(args)
                 .ConfigureCmsDefaults()
                 .ConfigureWebHostDefaults(webBuilder => webBuilder.UseStartup<Startup>());
+
     }
 }
+
