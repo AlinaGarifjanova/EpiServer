@@ -11,7 +11,9 @@ public class SitePageData : PageData
         get 
         { 
             var metaTitle = this.GetPropertyValue(x => x.MetaTitle); 
-            return !string.IsNullOrWhiteSpace(metaTitle) ? metaTitle : PageName;
+            return !string.IsNullOrWhiteSpace(metaTitle) 
+                ? metaTitle 
+                : PageName;
         }
         set => this.SetPropertyValue(x => x.MetaTitle, value);
     }

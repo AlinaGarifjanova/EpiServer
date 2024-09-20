@@ -3,6 +3,7 @@ using EPiServer.Cms.UI.AspNetIdentity;
 using EPiServer.Scheduler;
 using EPiServer.ServiceLocation;
 using EPiServer.Web.Routing;
+using EpiServerProject.Business.Extensions;
 
 namespace EpiServerProject
 {
@@ -27,7 +28,8 @@ namespace EpiServerProject
             services
                 .AddCmsAspNetIdentity<ApplicationUser>()
                 .AddCms()
-                .AddAdminUserRegistration()
+                .AddNack()
+				.AddAdminUserRegistration()
                 .AddEmbeddedLocalization<Startup>();
         }
 

@@ -1,5 +1,10 @@
-﻿<!DOCTYPE html>
-<html>
+﻿
+@using EpiServerProject.Models.Pages
+@using EpiServerProject.Models.ViewModels
+@model IPageViewModel<SitePageData>
+
+<!DOCTYPE html>
+<html lang="@Model.CurrentPage.Language">
     <head>
         <meta name="viewport" content="width=device-width"/>
         <title>@Model.CurrentPage.MetaTitle</title>
