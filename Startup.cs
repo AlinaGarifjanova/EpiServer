@@ -4,6 +4,7 @@ using EPiServer.Scheduler;
 using EPiServer.ServiceLocation;
 using EPiServer.Web.Routing;
 using EpiServerProject.Business.Extensions;
+using EpiServerProject.Business.Services;
 
 namespace EpiServerProject
 {
@@ -31,6 +32,7 @@ namespace EpiServerProject
                 .AddNack()
 				.AddAdminUserRegistration()
                 .AddEmbeddedLocalization<Startup>();
+            services.AddScoped<IMovieService, MovieService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

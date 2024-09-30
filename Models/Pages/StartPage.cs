@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using EpiServerProject.Models.Blocks;
+using System.ComponentModel.DataAnnotations;
 using static EpiServerProject.Globals;
 
 namespace EpiServerProject.Models.Pages;
@@ -8,7 +9,11 @@ namespace EpiServerProject.Models.Pages;
 [AvailableContentTypes(Availability.Specific, Include = new[]
 {
     typeof(SettingsPage),
-    typeof(ArticlePage)
+    typeof(ArticlePage), 
+    typeof(ContainerPage),
+    typeof(SlideshowPage),
+    typeof(SlideshowBlock),
+    typeof(SearchPage),
 })]
 public class StartPage : SitePageData
 {
@@ -19,6 +24,14 @@ public class StartPage : SitePageData
 
 	[Display(GroupName = SystemTabNames.Content, Order = 20)]
 	[CultureSpecific]
+    [ScaffoldColumn(false)]
 	public virtual XhtmlString MainBody { get; set; }
+
+
+    [Display(GroupName = SystemTabNames.Content, Order = 30, Name = "Slideshow", Description = "")]
+    [AllowedTypes (typeof(SlideshowPage), typeof(SlideshowBlock))]
+
+    public virtual ContentArea Content { get; set; }
+
 
 }
